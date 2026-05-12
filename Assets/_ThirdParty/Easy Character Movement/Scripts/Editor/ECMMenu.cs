@@ -35,7 +35,7 @@ namespace ECM.EditorTools
             capsuleCollider.height = 2.0f;
             capsuleCollider.material =
                 AssetDatabase.LoadAssetAtPath<PhysicMaterial>(
-                    "Assets/Easy Character Movement/Physic Materials/Frictionless.physicMaterial");
+                    "Assets/_ThirdParty/Easy Character Movement/Physic Materials/Frictionless.physicMaterial");
 
             var physicMaterial = capsuleCollider.sharedMaterial;
             if (physicMaterial == null)
@@ -93,7 +93,7 @@ namespace ECM.EditorTools
             capsuleCollider.height = 2.0f;
             capsuleCollider.material =
                 AssetDatabase.LoadAssetAtPath<PhysicMaterial>(
-                    "Assets/Easy Character Movement/Physic Materials/Frictionless.physicMaterial");
+                    "Assets/_ThirdParty/Easy Character Movement/Physic Materials/Frictionless.physicMaterial");
 
             var physicMaterial = capsuleCollider.sharedMaterial;
             if (physicMaterial == null)
@@ -151,7 +151,7 @@ namespace ECM.EditorTools
             capsuleCollider.height = 2.0f;
             capsuleCollider.material =
                 AssetDatabase.LoadAssetAtPath<PhysicMaterial>(
-                    "Assets/Easy Character Movement/Physic Materials/Frictionless.physicMaterial");
+                    "Assets/_ThirdParty/Easy Character Movement/Physic Materials/Frictionless.physicMaterial");
 
             var physicMaterial = capsuleCollider.sharedMaterial;
             if (physicMaterial == null)
