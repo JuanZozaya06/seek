@@ -2,6 +2,23 @@
 
 Unity third-person prototype built with Unity 2020.3.32f1.
 
+## Gameplay
+
+The main entry scene is the menu:
+
+1. `Assets/_Project/Scenes/Menu/Menu.unity`
+2. `Assets/_Project/Scenes/Gameplay/Kitchen/Kitchen.unity`
+
+Starting the game from the menu loads the Kitchen round scene.
+
+The current round concept is hide-and-seek:
+
+- The player is the `Seeker`.
+- The hidden character is the `Hider`.
+- A round starts automatically in `Kitchen` with a five-minute timer shown at the top center of the screen.
+- If the seeker selects the hider, the console logs `found one`, the round ends, and the seeker wins.
+- If the five-minute timer expires first, the hider wins.
+
 ## Project Layout
 
 - `Assets/_Project/` - game-specific content.
@@ -25,6 +42,14 @@ The build settings include:
 2. `Assets/_Project/Scenes/Gameplay/Kitchen/Kitchen.unity`
 
 Experimental scenes live under `Assets/_Project/Scenes/Experimental/`.
+
+## Key Scripts
+
+- `Assets/_Project/Scripts/Core/GameManager.cs` - round state, timer, role setup, winner resolution, and cursor lock.
+- `Assets/_Project/Scripts/Core/RoundParticipant.cs` - runtime role marker for seeker and hider objects.
+- `Assets/_Project/Scripts/Core/RoundRole.cs` - seeker/hider role enum.
+- `Assets/_Project/Scripts/Interaction/TargetScript.cs` - seeker selection raycast.
+- `Assets/_Project/Scripts/UI/MenuManager.cs` - menu scene loading.
 
 ## Development
 

@@ -45,16 +45,47 @@ public class TargetScript : MonoBehaviour {
             return;
         }
 
-        if (hit.collider != null && hit.collider.CompareTag ("Enemy")) {
-            LogShot ("FOUND ONE!");
-        } else {
-            LogShot ("MISSED!");
+        GameManager gameManager = GameManager.Instance;
+
+        if (gameManager != null && gameManager.State != GameManager.RoundState.Running) {
+            return;
         }
+
+        if (gameManager != null) {
+            if (gameManager.TryResolveSeekerSelection (hit.collider)) {
+                return;
+            }
+
+            LogShot ("MISSED!");
+            return;
+        }
+
+        LogShot (IsEnemyFallback (hit.collider) ? "found one" : "MISSED!");
     }
 
     void LogShot (string message) {
         if (logShots) {
             Debug.Log (message);
+        }
+    }
+
+    bool IsEnemyFallback (Collider hitCollider) {
+        if (hitCollider == null) {
+            return false;
+        }
+
+        return HasTag (hitCollider.gameObject, "Enemy") || HasTag (hitCollider.transform.root.gameObject, "Enemy");
+    }
+
+    bool HasTag (GameObject target, string tagName) {
+        if (target == null) {
+            return false;
+        }
+
+        try {
+            return target.CompareTag (tagName);
+        } catch (UnityException) {
+            return false;
         }
     }
 }
